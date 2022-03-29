@@ -26,7 +26,7 @@ def load_model():
     json_file.close()
     loaded_model = model_from_json(loaded_model_json)
     # load weights into new model
-    loaded_model.load_weights("model_best_weights (2).h5")
+    loaded_model.load_weights("C:\\Users\\groom\\Desktop\\model_best_weights (2).h5")
     return loaded_model
 
 def load_labels(labels_file):
