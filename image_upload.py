@@ -21,12 +21,12 @@ def load_image():
 
         
 def load_model():
-    json_file = open('C:\\Users\\groom\\Desktop\\model (2).json', 'r')
+    json_file = open('model (2).json', 'r')
     loaded_model_json = json_file.read()
     json_file.close()
     loaded_model = model_from_json(loaded_model_json)
     # load weights into new model
-    loaded_model.load_weights("C:\\Users\\groom\\Desktop\\model_best_weights (2).h5")
+    loaded_model.load_weights("model_best_weights (2).h5")
     return loaded_model
 
 def load_labels(labels_file):
@@ -60,7 +60,7 @@ def predict(loaded_model, categories, x):
 
 def main():
     
-    LABELS_PATH = 'C:\\Users\\groom\\Desktop\\model_classes.txt'
+    LABELS_PATH = 'model_classes.txt'
     st.title('Pretrained model demo')
     model = load_model()
     categories = load_labels(LABELS_PATH)
