@@ -4,3 +4,4 @@ opencv_contrib_python==4.5.1.48
 Pillow==9.0.1
 streamlit==1.7.0
 tensorflow==2.8.0
+click<=8.0.4
