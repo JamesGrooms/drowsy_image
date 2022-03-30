@@ -59,12 +59,18 @@ def predict(loaded_model, categories, x):
     x = cv2.resize(x, dsize=(224, 224), interpolation=cv2.INTER_CUBIC)
     x = np.expand_dims(x, axis=0) /255
     classes = loaded_model.predict(x)
+    st.subheader('Predictions')
     st.write("Closed:", np.argmax(classes[0])==0, (classes[0][0]), round(classes[0][0]) * 100,"%") # 0 : Eyes closed
     st.write("Open:" , np.argmax(classes[0])==1, (classes[0][1]), round(classes[0][1]) * 100,"%") # 1 : Eyes open
     st.write("No-yawn:" , np.argmax(classes[0])==2, (classes[0][2]), round(classes[0][2])  * 100,"%")# 2 : No yawn
     st.write("Yawn:" , np.argmax(classes[0])==3, (classes[0][3]), round(classes[0][3])  * 100,"%")# 3 : Yawn
     st.write(f"Predicted label: {labels[np.argmax(classes[0])]}") # Predicted label
     st.write(f"Probability of prediction): {round(np.max(classes[0])) * 100} %") # Probablilty of prediction
+    st.subheader('Conclusion')
+    if (np.argmax(classes[0])==0 or np.argmax(classes[0])==3):
+        st.write("Drowsy")
+    else:
+        st.write("Not drowsy")
 
 
 
@@ -72,7 +78,8 @@ def predict(loaded_model, categories, x):
 def main():
     
     LABELS_PATH = 'model_classes.txt'
-    st.title('Pretrained model demo')
+    st.title('Drowsy Detection Demo')
+    st.header('A transfer learning approach')
     model = load_model()
     categories = load_labels(LABELS_PATH)
     image = load_image()
