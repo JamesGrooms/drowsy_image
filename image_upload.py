@@ -28,7 +28,7 @@ def load_model():
     # load weights into new model
     
     zip_file = "model_best_weights.zip"
-    file_to_extract = "model_best_weights (2).h5"
+    file_to_extract = "weights.h5"
  
     try:
         with zipfile.ZipFile(zip_file) as z:
