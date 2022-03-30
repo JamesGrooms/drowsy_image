@@ -27,17 +27,17 @@ def load_model():
     loaded_model = model_from_json(loaded_model_json)
     # load weights into new model
     
-    zip_file = "model_best_weights.zip"
-    file_to_extract = "weights.h5"
+    #zip_file = "model_best_weights.zip"
+    #file_to_extract = "weights.h5"
  
-    try:
-        with zipfile.ZipFile(zip_file) as z:
-            with open(file_to_extract, 'wb') as f:
-                f.write(z.read(file_to_extract))
-                print("Extracted", file_to_extract)
-    except:
-        print("Invalid file")
-    loaded_model.load_weights(file_to_extract)
+    #try:
+        #with zipfile.ZipFile(zip_file) as z:
+            #with open(file_to_extract, 'wb') as f:
+                #f.write(z.read(file_to_extract))
+                #print("Extracted", file_to_extract)
+    #except:
+        #print("Invalid file")
+    loaded_model.load_weights("weights.h5")
     return loaded_model
 
 def load_labels(labels_file):
